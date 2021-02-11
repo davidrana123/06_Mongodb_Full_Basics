@@ -1,0 +1,64 @@
+   1--collection ke ander document ko update krne ke liye
+
+    db.collections_name.updateOne({name of document},space {$set:{type:"jo data bdlna hai"}})
+
+    Ex----
+   > db.daviddata.updateOne({name:"javascript"}, {$set:{type:"frientend"}})
+   { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+   2--chack document
+   > db.daviddata.find().pretty()
+
+   2--2 document ko aiiik sath update krna
+
+   > db.daviddata.updateMany({type:"backend"}, {$set:{action:false}})
+   {
+        "_id" : ObjectId("6024cfcbc7c8c701a730512a"),
+        "name" : "Reactjs",
+        "type" : "fortend",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("6024d663a2050ba5c18773fe"),
+        "name" : "mongodb",
+        "type" : "database",
+        "videos" : 5,
+        "active" : true
+}
+{
+        "_id" : ObjectId("6024d7cca2050ba5c18773ff"),
+        "name" : "nodejs",
+        "type" : "backend",
+        "videos" : 40,
+        "action" : false
+}
+{
+        "_id" : ObjectId("6024d7cca2050ba5c1877400"),
+        "name" : "javascript",
+        "type" : "frientend",
+        "videos" : 150,
+        "active" : true
+}
+
+
+                #7: MongoDB CRUD 👉 Delete the Documents into Collections | DeleteMany vs Remove | in Hindi in 2020
+
+                1--collections ke andr document ko Delete krne ke liye
+
+
+                > db.daviddata.deleteMany({type:"frientend"})
+                { "acknowledged" : true, "deletedCount" : 1 }
+
+                2-- Delete all document
+
+                > db.daviddata.deleteMany({})
+                { "acknowledged" : true, "deletedCount" : 3 }
+
+
+                😍 #8: Install MongoDB GUI Compass in Hindi in 2020
+
+                mongodb Compass ko install ke baad
+                mongodb Compass me connect me ja ke connect to krna hai 
+                 cmd mongo ko run krna hai
+

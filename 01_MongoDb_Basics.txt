@@ -1,0 +1,110 @@
+stap 1
+
+1-install mongodb
+2-cmd 
+"past mongodb folde bin file part"
+3-env set bin file path
+4-cmd type - mongodb
+
+stap-2
+
+create database
+
+1-show dbs
+ (database) = dbs
+2-table = collection(in mongodb) call 
+--create collection 
+ 1-cmd type
+    use name of database
+    ex-  >use david
+ 2-database data insret
+    db.nameofdatabase.insert({name:"david" ,type:"txt" ,num:45 ,action:true})
+    then enter
+    ex-  > db.daviddata.insertOne({name:"Reactjs",type:"fortend",videos: 80 ,active:true})
+    enter
+    {
+        "acknowledged" : true,
+        "insertedId" : ObjectId("6024cfcbc7c8c701a730512a")
+}
+
+3-chack active database
+    cmd type 
+   > db
+
+4-collections = table
+    cmd type
+    >show collections
+
+5-collections me docment dekhne ke liye
+    cmd type
+    > db.daviddata.find()
+    ex-{ "_id" : ObjectId("6024cfcbc7c8c701a730512a"), "name" : "Reactjs", "type" : "fortend", "videos" : 80, "active" : true }
+
+6-data ko tiik se dekhne ke liye 
+    cmd type
+    > db.daviddata.find().pretty()
+    ex-{
+        "_id" : ObjectId("6024cfcbc7c8c701a730512a"),
+        "name" : "Reactjs",
+        "type" : "fortend",
+        "videos" : 80,
+        "active" : true
+}
+
+                                   CRUD oprection part 1---create or inseret kiya
+         4: MongoDB CRUD Operation 👉 Create or Insert Documents into Collections in Hindi in 2020
+
+7-bhut sare data ko insert krna hai to 
+    cmd type 
+    db.daviddata.insertMany([{},{},{}])
+    ex-    > db.daviddata.insertMany([{name:"nodejs",type:"backend",videos:40,action:true},{name:"javascript",type:"frontend",videos:150,active:true}]);
+    {
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("6024d7cca2050ba5c18773ff"),
+                ObjectId("6024d7cca2050ba5c1877400")
+        ]
+}
+
+8-ab data ko dekhne ke liye
+    cmd type
+    > db.daviddata.find().pretty()
+    {
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("6024d7cca2050ba5c18773ff"),
+                ObjectId("6024d7cca2050ba5c1877400")
+        ]
+}
+> db.daviddata.find().pretty()
+{
+        "_id" : ObjectId("6024cfcbc7c8c701a730512a"),
+        "name" : "Reactjs",
+        "type" : "fortend",
+        "videos" : 80,
+        "active" : true
+}
+{
+        "_id" : ObjectId("6024d663a2050ba5c18773fe"),
+        "name" : "mongodb",
+        "type" : "database",
+        "videos" : 5,
+        "active" : true
+}
+{
+        "_id" : ObjectId("6024d7cca2050ba5c18773ff"),
+        "name" : "nodejs",
+        "type" : "backend",
+        "videos" : 40,
+        "action" : true
+}
+{
+        "_id" : ObjectId("6024d7cca2050ba5c1877400"),
+        "name" : "javascript",
+        "type" : "frontend",
+        "videos" : 150,
+        "active" : true
+}
+
+
+

@@ -1,0 +1,68 @@
+         1-database ke collection me kisi aiik document ke data ko dekhne ke liye
+
+main - db.collection.find(query,projection)
+
+1-stap 
+
+db.databasename({name of file})
+
+> db.daviddata({name:"mongodb"})
+
+ex-    > db.daviddata({name:"mongodb"})
+> db.daviddata.find({name:"mongodb"}).pretty()
+{
+        "_id" : ObjectId("6024d663a2050ba5c18773fe"),
+        "name" : "mongodb",
+        "type" : "database",
+        "videos" : 5,
+        "active" : true
+}
+
+         2-database ke collection me document ke andr kisi aik field ko dekhne ke liye
+
+2-stap - use projection
+
+db.daviddata.find({name:"mongodb"},{name:1}).pretty()
+
+Ex-  db.daviddata.find({name:"mongodb"},{name:1}).pretty()
+        { "_id" : ObjectId("6024d663a2050ba5c18773fe"), "name" : "mongodb" }
+
+          2-database ke collection me document ke andr kisi aik field ko dekhne with out id ke liye
+> db.daviddata.find({name:"mongodb"},{_id:0,name:1}).pretty()
+{ "name" : "mongodb" }
+
+        3-database ke collection me document ke andr kisi ko s.n se dekhne ke liye
+
+        cmd type
+        > db.daviddata.find({action:true}).pretty().limit(1)
+        {
+        "_id" : ObjectId("6024d7cca2050ba5c18773ff"),
+        "name" : "nodejs",
+        "type" : "backend",
+        "videos" : 40,
+        "action" : true
+}
+
+
+       2-database ke collection me document ke andr kisi ko s.n se dekhne ke liye
+        method - 2
+        > db.daviddata.findOne({action:true})
+        {
+        "_id" : ObjectId("6024d7cca2050ba5c18773ff"),
+        "name" : "nodejs",
+        "type" : "backend",
+        "videos" : 40,
+        "action" : true
+}
+
+2-database ke collection me document ke andr kisi ko s.n se dekhne ke liye 
+        ex.1 chor ke active 2 cahiye
+        > db.daviddata.find({active:true}).pretty().limit(1).skip(1)
+        {
+        "_id" : ObjectId("6024d663a2050ba5c18773fe"),
+        "name" : "mongodb",
+        "type" : "database",
+        "videos" : 5,
+        "active" : true
+}
+
